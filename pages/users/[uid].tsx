@@ -1,7 +1,8 @@
-import firebase from 'firebase'
+import firebase from 'firebase/app'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { User } from '../../models/User'
+import Layout from '../../components/Layout'
 
 type Query = {
   uid: string
@@ -34,5 +35,14 @@ export default function UserShow() {
     loadUser()
   }, [query.uid])
 
-  return <div>{user ? user.name : 'ロード中…'}</div>
+  return (
+    <Layout>
+      {user && (
+        <div className="text-center">
+          <h1 className="h4">{user.name}さんのページ</h1>
+          <div className="m-5">{user.name}さんに質問しよう！</div>
+        </div>
+      )}
+    </Layout>
+  )
 }
