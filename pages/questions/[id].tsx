@@ -55,8 +55,11 @@ export default function QuestionsShow() {
   }
 
   useEffect(() => {
+    if(user === null) {
+      return;
+    }
     loadData()
-  }, [query.id])
+  }, [query.id, user])
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
