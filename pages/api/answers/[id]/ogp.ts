@@ -1,3 +1,4 @@
+import '../../../../lib/firebase_admin'
 import { NextApiRequest, NextApiResponse } from 'next'
 import * as path from 'path'
 import { createCanvas, registerFont, loadImage } from 'canvas'
