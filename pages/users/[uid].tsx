@@ -4,6 +4,7 @@ import { useEffect, useState, FormEvent } from 'react'
 import { User } from '../../models/User'
 import Layout from '../../components/Layout'
 import { toast } from 'react-toastify';
+import Link from 'next/link'
 
 type Query = {
   uid: string
@@ -94,6 +95,15 @@ export default function UserShow() {
                 </div>
               </form>
             </div>
+          </div>
+          <div>
+            {user && (
+              <p>
+                <Link href="/users/me">
+                  <a className="btn btn-link">自分もみんなに質問してもらおう！</a>
+                </Link>
+              </p>
+            )}
           </div>
         </div>
       )}
